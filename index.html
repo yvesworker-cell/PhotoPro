@@ -151,7 +151,13 @@
       navigator.serviceWorker.register("./sw.js");
     });
   }
+
+  function viewProfile() {
+    window.location.href = "profile.html";
+  }
 </script>
+  
+}
 
   <header>
     <h1>📸 PhotoPro</h1>
@@ -189,7 +195,7 @@
           <button class="book" onclick="bookNow('Yves Photographer')">
             Book Now
           </button>
-        </div>
+        </div><button onclick="viewProfile()">View Profile 👤</button>
       </div>
 
       <div class="card">
