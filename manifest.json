@@ -1,0 +1,10 @@
+{
+  "name": "PhotoPro",
+  "short_name": "PhotoPro",
+  "description": "Find photographers and video editors near you.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#111827",
+  "icons": []
+}
