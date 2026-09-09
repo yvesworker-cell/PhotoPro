@@ -70,8 +70,38 @@
     .services {
       margin-top: 20px;
     }
+.services {
+  margin-top: 20px;
+}
 
-    .services h3 {
+}
+
+<button class="book" onclick="bookNow()">
+  Book Now
+</button>
+}
+
+.portfolio h3 {
+  margin-bottom: 15px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.gallery-item {
+  height: 140px;
+  background: #d1d5db;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
       margin-bottom: 10px;
     }
 
@@ -137,7 +167,16 @@
         <p>👤 Portrait Photography</p>
       </div>
 
-      <button class="book" onclick="bookNow()">
+      <div class="portfolio">
+  <h3>📸 Portfolio</h3>
+
+  <div class="gallery">
+    <div class="gallery-item">📷<br>Wedding</div>
+    <div class="gallery-item">📷<br>Portrait</div>
+    <div class="gallery-item">🎬<br>Events</div>
+    <div class="gallery-item">📸<br>Outdoor</div>
+  </div>
+</div> onclick="bookNow()">
         Book Now
       </button>
 
