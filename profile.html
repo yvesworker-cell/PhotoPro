@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photographer Profile - PhotoPro</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f6f8;
+      color: #111827;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 22px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    .profile {
+      max-width: 700px;
+      margin: 25px auto;
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .cover {
+      height: 220px;
+      background: #d1d5db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+    }
+
+    .info {
+      padding: 25px;
+    }
+
+    .info h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .location {
+      color: #6b7280;
+      font-size: 17px;
+      margin-bottom: 15px;
+    }
+
+    .rating {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .services {
+      margin-top: 20px;
+    }
+
+    .services h3 {
+      margin-bottom: 10px;
+    }
+
+    .services p {
+      margin: 8px 0;
+    }
+
+    .book {
+      width: 100%;
+      padding: 15px;
+      margin-top: 25px;
+      border: none;
+      border-radius: 10px;
+      background: #111827;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .book:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>📸 PhotoPro</h1>
+    <p>Photographer Profile</p>
+  </header>
+
+  <div class="profile">
+
+    <div class="cover">
+      📷
+    </div>
+
+    <div class="info">
+
+      <h2>Yves Photographer</h2>
+
+      <div class="location">
+        📍 Bujumbura
+      </div>
+
+      <div class="rating">
+        ⭐ 4.9
+      </div>
+
+      <p>
+        Professional photographer and video editor available
+        for events, portraits and special moments.
+      </p>
+
+      <div class="services">
+        <h3>Services</h3>
+
+        <p>📸 Photography</p>
+        <p>🎥 Video Editing</p>
+        <p>🎬 Event Coverage</p>
+        <p>👤 Portrait Photography</p>
+      </div>
+
+      <button class="book" onclick="bookNow()">
+        Book Now
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+    function bookNow() {
+      alert("Booking feature coming soon!");
+    }
+  </script>
+
+</body>
+</html>
