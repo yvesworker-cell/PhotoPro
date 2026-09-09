@@ -144,7 +144,17 @@
     }
   </style>
 </head>
-
+.profile-btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
 <body><script>
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
@@ -202,8 +212,8 @@
           <p class="rating">⭐ 4.8</p>
 
           <button class="book" onclick="bookNow('Creative Studio')">
-            Book Now<button onclick="viewProfile()">View Profile 👤</button>
-        
+            Book Now
+        <a href="profile.html" class="profile-btn">View Profile 👤</a>
         </div>
       </div>
 
