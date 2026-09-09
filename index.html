@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhotoPro</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f6f8;
+      color: #111827;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    header p {
+      margin-top: 6px;
+      color: #d1d5db;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .hero {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .hero h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #6b7280;
+      margin-bottom: 18px;
+    }
+
+    .search {
+      display: flex;
+      gap: 10px;
+    }
+
+    .search input {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .search button {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #111827;
+      color: white;
+      font-weight: bold;
+    }
+
+    h2.section-title {
+      margin: 25px 0 15px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 15px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .photo {
+      height: 180px;
+      background: linear-gradient(135deg, #d1d5db, #6b7280);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+    }
+
+    .card-content {
+      padding: 16px;
+    }
+
+    .card-content h3 {
+      margin-bottom: 6px;
+    }
+
+    .location {
+      color: #6b7280;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .rating {
+      margin-bottom: 12px;
+    }
+
+    .book {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #111827;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>📸 PhotoPro</h1>
+    <p>Find photographers & video editors near you</p>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <h2>Find Your Perfect Creator</h2>
+      <p>Discover talented photographers and video editors for your next project.</p>
+
+      <div class="search">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search photographer..."
+        >
+        <button onclick="searchPhotographers()">Search</button>
+      </div>
+    </section>
+
+    <h2 class="section-title">🔥 Popular Photographers</h2>
+
+    <section class="cards" id="photographerList">
+
+      <div class="card">
+        <div class="photo">📷</div>
+
+        <div class="card-content">
+          <h3>Yves Photographer</h3>
+          <p class="location">📍 Bujumbura</p>
+          <p class="rating">⭐ 4.9</p>
+
+          <button class="book" onclick="bookNow('Yves Photographer')">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo">🎥</div>
+
+        <div class="card-content">
+          <h3>Creative Studio</h3>
+          <p class="location">📍 Nairobi</p>
+          <p class="rating">⭐ 4.8</p>
+
+          <button class="book" onclick="bookNow('Creative Studio')">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo">📸</div>
+
+        <div class="card-content">
+          <h3>Vision Media</h3>
+          <p class="location">📍 Kampala</p>
+          <p class="rating">⭐ 4.7</p>
+
+          <button class="book" onclick="bookNow('Vision Media')">
+            Book Now
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 PhotoPro — Connecting people with creators.
+  </footer>
+
+  <script>
+    function bookNow(name) {
+      alert(
+        "Booking request sent to " +
+        name +
+        "! We will add the real booking system soon."
+      );
+    }
+
+    function searchPhotographers() {
+      const input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const name = card
+          .querySelector("h3")
+          .textContent
+          .toLowerCase();
+
+        if (name.includes(input)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
