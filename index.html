@@ -275,193 +275,118 @@
     form.style.padding = "20px";
     form.style.boxSizing = "border-box";
 
-    form.innerHTML = `
-        <div style="
-            background:white;
-            width:100%;
-            max-width:450px;
-            border-radius:18px;
-            padding:25px;
-            box-sizing:border-box;
-        ">
+    
+form.innerHTML = `
+<div style="
+    background:white;
+    width:100%;
+    max-width:450px;
+    border-radius:18px;
+    padding:25px;
+    box-sizing:border-box;
+">
+    <h2 style="margin-top:0;">
+        📅 Book ${name}
+    </h2>
 
-            <h2 style="margin-top:0;">
-                📅 Book ${name}
-            </h2>
+    <p style="color:#6b7280;">
+        Fill in your details to request a booking.
+    </p>
 
-            <p style="color:#6b7280;">
-                Fill in your details to request a booking.
-            </p>
+    <input
+        id="bookingName"
+        type="text"
+        placeholder="Your name"
+        style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box;"
+    >
 
-            <input
-                id="bookingName"
-                type="text"
-                placeholder="Your name"
-                style="
-                    width:100%;
-                    padding:13px;
-                    margin:8px 0;
-                    border:1px solid #ddd;
-                    border-radius:10px;
-                    box-sizing:border-box;
-                "
-            >
+    <div class="phone-row">
+        <select id="countryCode" style="padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:10px;">
+            <option value="+257">🇧🇮 +257 Burundi</option>
+            <option value="+254">🇰🇪 +254 Kenya</option>
+            <option value="+250">🇷🇼 +250 Rwanda</option>
+            <option value="+255">🇹🇿 +255 Tanzania</option>
+            <option value="+256">🇺🇬 +256 Uganda</option>
+            <option value="+243">🇨🇩 +243 DR Congo</option>
+            <option value="+1">🇺🇸 +1 USA/Canada</option>
+            <option value="+44">🇬🇧 +44 UK</option>
+            <option value="+33">🇫🇷 +33 France</option>
+            <option value="+49">🇩🇪 +49 Germany</option>
+            <option value="+39">🇮🇹 +39 Italy</option>
+            <option value="+34">🇪🇸 +34 Spain</option>
+            <option value="+27">🇿🇦 +27 South Africa</option>
+            <option value="+234">🇳🇬 +234 Nigeria</option>
+            <option value="+233">🇬🇭 +233 Ghana</option>
+            <option value="+20">🇪🇬 +20 Egypt</option>
+            <option value="+91">🇮🇳 +91 India</option>
+            <option value="+86">🇨🇳 +86 China</option>
+            <option value="+81">🇯🇵 +81 Japan</option>
+            <option value="+82">🇰🇷 +82 South Korea</option>
+            <option value="+971">🇦🇪 +971 UAE</option>
+            <option value="+966">🇸🇦 +966 Saudi Arabia</option>
+            <option value="+61">🇦🇺 +61 Australia</option>
+        </select>
 
-            
-<div class="phone-row">
-    <select id="countryCode">
-        <option value="+257">🇧🇮 +257 Burundi</option>
-        <option value="+254">🇰🇪 +254 Kenya</option>
-        <option value="+250">🇷🇼 +250 Rwanda</option>
-        <option value="+255">🇹🇿 +255 Tanzania</option>
-        <option value="+256">🇺🇬 +256 Uganda</option>
-        <option value="+243">🇨🇩 +243 DR Congo</option>
-        <option value="+1">🇺🇸 +1 USA/Canada</option>
-        <option value="+44">🇬🇧 +44 UK</option>
-        <option value="+33">🇫🇷 +33 France</option>
-        <option value="+49">🇩🇪 +49 Germany</option>
-        <option value="+39">🇮🇹 +39 Italy</option>
-        <option value="+34">🇪🇸 +34 Spain</option>
-        <option value="+27">🇿🇦 +27 South Africa</option>
-        <option value="+234">🇳🇬 +234 Nigeria</option>
-        <option value="+233">🇬🇭 +233 Ghana</option>
-        <option value="+20">🇪🇬 +20 Egypt</option>
-        <option value="+91">🇮🇳 +91 India</option>
-        <option value="+86">🇨🇳 +86 China</option>
-        <option value="+81">🇯🇵 +81 Japan</option>
-        <option value="+82">🇰🇷 +82 South Korea</option>
-        <option value="+971">🇦🇪 +971 UAE</option>
-        <option value="+966">🇸🇦 +966 Saudi Arabia</option>
-        <option value="+61">🇦🇺 +61 Australia</option>
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Phone number"
+            style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box;"
+        >
+    </div>
+
+    <select id="bookingService"
+        style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box;">
+        <option value="">Choose a service</option>
+        <option>Photography</option>
+        <option>Video Editing</option>
+        <option>Event Coverage</option>
+        <option>Portrait Photography</option>
     </select>
 
     <input
-        type="tel"
-        id="phone"
-        placeholder="Phone number"
+        id="bookingDate"
+        type="date"
+        style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box;"
     >
+
+    <input
+        id="bookingTime"
+        type="time"
+        style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box;"
+    >
+
+    <input
+        id="bookingLocation"
+        type="text"
+        placeholder="Event/location"
+        style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box;"
+    >
+
+    <textarea
+        id="bookingMessage"
+        placeholder="Additional message"
+        rows="3"
+        style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:10px;box-sizing:border-box;resize:none;"
+    ></textarea>
+
+    <button
+        type="button"
+        onclick="submitBooking('${name}')"
+        style="width:100%;padding:14px;margin-top:10px;border:none;border-radius:10px;background:#2563eb;color:white;font-size:16px;font-weight:bold;"
+    >
+        Confirm Booking
+    </button>
+
+    <button
+        type="button"
+        onclick="this.closest('div[style*=&quot;position: fixed&quot;]').remove()"
+        style="width:100%;padding:12px;margin-top:8px;border:none;border-radius:10px;background:#eee;color:#111827;font-size:15px;"
+    >
+        Cancel
+    </button>
 </div>
-              
-            
-            
-                    
-                    
-                    
-        
-                  
-              
-            >
-
-            <select
-                id="bookingService"
-                style="
-                    width:100%;
-                    padding:13px;
-                    margin:8px 0;
-                    border:1px solid #ddd;
-                    border-radius:10px;
-                    box-sizing:border-box;
-                    background:white;
-                "
-            >
-                <option value="">Choose a service</option>
-                <option>Photography</option>
-                <option>Video Editing</option>
-                <option>Event Coverage</option>
-                <option>Portrait Photography</option>
-            </select>
-
-            <input
-                id="bookingDate"
-                type="date"
-                style="
-                    width:100%;
-                    padding:13px;
-                    margin:8px 0;
-                    border:1px solid #ddd;
-                    border-radius:10px;
-                    box-sizing:border-box;
-                "
-            >
-
-            <input
-                id="bookingTime"
-                type="time"
-                style="
-                    width:100%;
-                    padding:13px;
-                    margin:8px 0;
-                    border:1px solid #ddd;
-                    border-radius:10px;
-                    box-sizing:border-box;
-                "
-            >
-
-            <input
-                id="bookingLocation"
-                type="text"
-                placeholder="Event/location"
-                style="
-                    width:100%;
-                    padding:13px;
-                    margin:8px 0;
-                    border:1px solid #ddd;
-                    border-radius:10px;
-                    box-sizing:border-box;
-                "
-            >
-
-            <textarea
-                id="bookingMessage"
-                placeholder="Additional message"
-                rows="3"
-                style="
-                    width:100%;
-                    padding:13px;
-                    margin:8px 0;
-                    border:1px solid #ddd;
-                    border-radius:10px;
-                    box-sizing:border-box;
-                    resize:none;
-                "
-            ></textarea>
-
-            <button
-                onclick="submitBooking('${name}')"
-                style="
-                    width:100%;
-                    padding:14px;
-                    margin-top:10px;
-                    border:none;
-                    border-radius:10px;
-                    background:#2563eb;
-                    color:white;
-                    font-size:16px;
-                    font-weight:bold;
-                "
-            >
-                Confirm Booking
-            </button>
-
-            <button
-                onclick="this.closest('div[style*=\\"position: fixed\\"]').remove()"
-                style="
-                    width:100%;
-                    padding:12px;
-                    margin-top:8px;
-                    border:none;
-                    border-radius:10px;
-                    background:#eee;
-                    color:#111827;
-                    font-size:15px;
-                "
-            >
-                Cancel
-            </button>
-
-        </div>
-    `;
-
+`;
     document.body.appendChild(form);
 }
 
