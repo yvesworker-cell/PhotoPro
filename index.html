@@ -198,8 +198,14 @@
           <p class="rating">⭐ 4.9</p>
 
           <button class="book" onclick="bookNow('Yves Photographer')">
-            Book Now<a href="profile.html" class="profile-btn">View Profile 👤</a>
-          </button>
+    📅 Book Now
+</button>
+
+<a href="profile.html" class="profile-btn">
+    👤 View Profile
+</a>
+
+          
         </div>
       </div>
 
@@ -212,7 +218,13 @@
           <p class="rating">⭐ 4.8</p>
 
           <button class="book" onclick="bookNow('Creative Studio')">
-            Book Now<<a href="profile.html" class="profile-btn">View Profile 👤</a>
+    📅 Book Now
+</button>
+
+<a href="profile.html" class="profile-btn">
+    👤 View Profile
+</a>
+        
   
         
         </div>
@@ -227,8 +239,13 @@
           <p class="rating">⭐ 4.7</p>
 
           <button class="book" onclick="bookNow('Vision Media')">
-            Book Now<a href="profile.html" class="profile-btn">View Profile 👤</a>
-          </button>
+    📅 Book Now
+</button>
+
+<a href="profile.html" class="profile-btn">
+    👤 View Profile
+</a>
+          
         </div>
       </div>
 
@@ -242,12 +259,251 @@
 
   <script>
     function bookNow(name) {
-      alert(
-        "Booking request sent to " +
-        name +
-        "! We will add the real booking system soon."
-      );
+
+    const form = document.createElement("div");
+
+    form.style.position = "fixed";
+    form.style.top = "0";
+    form.style.left = "0";
+    form.style.width = "100%";
+    form.style.height = "100%";
+    form.style.background = "rgba(0,0,0,0.6)";
+    form.style.display = "flex";
+    form.style.alignItems = "center";
+    form.style.justifyContent = "center";
+    form.style.zIndex = "9999";
+    form.style.padding = "20px";
+    form.style.boxSizing = "border-box";
+
+    form.innerHTML = `
+        <div style="
+            background:white;
+            width:100%;
+            max-width:450px;
+            border-radius:18px;
+            padding:25px;
+            box-sizing:border-box;
+        ">
+
+            <h2 style="margin-top:0;">
+                📅 Book ${name}
+            </h2>
+
+            <p style="color:#6b7280;">
+                Fill in your details to request a booking.
+            </p>
+
+            <input
+                id="bookingName"
+                type="text"
+                placeholder="Your name"
+                style="
+                    width:100%;
+                    padding:13px;
+                    margin:8px 0;
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    box-sizing:border-box;
+                "
+            >
+
+            <input
+                id="bookingPhone"
+                type="tel"
+                placeholder="Phone number"
+                style="
+                    width:100%;
+                    padding:13px;
+                    margin:8px 0;
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    box-sizing:border-box;
+                "
+            >
+
+            <select
+                id="bookingService"
+                style="
+                    width:100%;
+                    padding:13px;
+                    margin:8px 0;
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    box-sizing:border-box;
+                    background:white;
+                "
+            >
+                <option value="">Choose a service</option>
+                <option>Photography</option>
+                <option>Video Editing</option>
+                <option>Event Coverage</option>
+                <option>Portrait Photography</option>
+            </select>
+
+            <input
+                id="bookingDate"
+                type="date"
+                style="
+                    width:100%;
+                    padding:13px;
+                    margin:8px 0;
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    box-sizing:border-box;
+                "
+            >
+
+            <input
+                id="bookingTime"
+                type="time"
+                style="
+                    width:100%;
+                    padding:13px;
+                    margin:8px 0;
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    box-sizing:border-box;
+                "
+            >
+
+            <input
+                id="bookingLocation"
+                type="text"
+                placeholder="Event/location"
+                style="
+                    width:100%;
+                    padding:13px;
+                    margin:8px 0;
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    box-sizing:border-box;
+                "
+            >
+
+            <textarea
+                id="bookingMessage"
+                placeholder="Additional message"
+                rows="3"
+                style="
+                    width:100%;
+                    padding:13px;
+                    margin:8px 0;
+                    border:1px solid #ddd;
+                    border-radius:10px;
+                    box-sizing:border-box;
+                    resize:none;
+                "
+            ></textarea>
+
+            <button
+                onclick="submitBooking('${name}')"
+                style="
+                    width:100%;
+                    padding:14px;
+                    margin-top:10px;
+                    border:none;
+                    border-radius:10px;
+                    background:#2563eb;
+                    color:white;
+                    font-size:16px;
+                    font-weight:bold;
+                "
+            >
+                Confirm Booking
+            </button>
+
+            <button
+                onclick="this.closest('div[style*=\\"position: fixed\\"]').remove()"
+                style="
+                    width:100%;
+                    padding:12px;
+                    margin-top:8px;
+                    border:none;
+                    border-radius:10px;
+                    background:#eee;
+                    color:#111827;
+                    font-size:15px;
+                "
+            >
+                Cancel
+            </button>
+
+        </div>
+    `;
+
+    document.body.appendChild(form);
+}
+
+
+function submitBooking(photographer) {
+
+    const customerName =
+        document.getElementById("bookingName").value.trim();
+
+    const phone =
+        document.getElementById("bookingPhone").value.trim();
+
+    const service =
+        document.getElementById("bookingService").value;
+
+    const date =
+        document.getElementById("bookingDate").value;
+
+    const time =
+        document.getElementById("bookingTime").value;
+
+    const location =
+        document.getElementById("bookingLocation").value.trim();
+
+    const message =
+        document.getElementById("bookingMessage").value.trim();
+
+
+    if (!customerName || !phone || !service || !date || !time || !location) {
+
+        alert("Please fill in all required fields.");
+
+        return;
     }
+
+
+    const booking = {
+        photographer: photographer,
+        customerName: customerName,
+        phone: phone,
+        service: service,
+        date: date,
+        time: time,
+        location: location,
+        message: message,
+        status: "Pending",
+        createdAt: new Date().toISOString()
+    };
+
+
+    const bookings =
+        JSON.parse(localStorage.getItem("photoproBookings")) || [];
+
+    bookings.push(booking);
+
+    localStorage.setItem(
+        "photoproBookings",
+        JSON.stringify(bookings)
+    );
+
+
+    alert(
+        "✅ Booking submitted successfully!\n\n" +
+        "Photographer: " + photographer + "\n" +
+        "Service: " + service + "\n" +
+        "Date: " + date + "\n" +
+        "Time: " + time
+    );
+
+
+    location.reload();
+}
+      
 
     function searchPhotographers() {
       const input = document
