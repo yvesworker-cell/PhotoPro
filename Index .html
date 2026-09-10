@@ -697,139 +697,116 @@ const countryCodes = [
    BOOK NOW
    ========================================= */
 
+
 function bookNow(name) {
 
-  /* Create the overlay */
+    // Create booking overlay
+    const overlay = document.createElement("div");
+    overlay.className = "booking-overlay";
+    overlay.id = "bookingOverlay";
 
-  const overlay = document.createElement("div");
+    // Create country options
+    let countryOptions = "";
 
-  overlay.className = "booking-overlay";
+    countryCodes.forEach(function(country) {
+        countryOptions += `
+            <option value="${country[0]}">${country[1]}</option>
+        `;
+    });
 
-  overlay.id = "bookingOverlay";
+    // Create booking form
+    overlay.innerHTML = `
+        <div class="booking-box">
 
+            <h2>📅 Book ${escapeQuotes(name)}</h2>
 
-  /* Create country options */
+            <p>
+                Fill in your details to request a booking.
+            </p>
 
-  let countryOptions = "";
+            <input
+                id="bookingName"
+                type="text"
+                placeholder="Your name"
+                style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;"
+            >
 
-  countryCodes.forEach(function(country) {
+            <div class="phone-row">
 
-    countryOptions +=
-      `<option value="${country[0]}">${country[1]}</option>`;
+                <select
+                    id="countryCode"
+                    style="padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:8px;"
+                >
+                    ${countryOptions}
+                </select>
 
-  });
+                <input
+                    id="phone"
+                    type="tel"
+                    placeholder="Phone number"
+                    style="flex:1;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;"
+                >
 
+            </div>
 
-  /* Create booking form */
+            <select
+                id="bookingService"
+                style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;"
+            >
+                <option value="">Choose a service</option>
+                <option value="Photography">Photography</option>
+                <option value="Video Editing">Video Editing</option>
+                <option value="Event Coverage">Event Coverage</option>
+                <option value="Portrait Photography">Portrait Photography</option>
+            </select>
 
-  overlay.innerHTML = `
+            <input
+                id="bookingDate"
+                type="date"
+                style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;"
+            >
 
-    <div class="booking-box">
+            <input
+                id="bookingTime"
+                type="time"
+                style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;"
+            >
 
-      <h2>📅 Book ${name}</h2>
+            <input
+                id="bookingLocation"
+                type="text"
+                placeholder="Event/location"
+                style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;"
+            >
 
-      <p>
-        Fill in your details to request a booking.
-      </p>
+            <textarea
+                id="bookingMessage"
+                placeholder="Additional message"
+                rows="3"
+                style="width:100%;padding:13px;margin:8px 0;border:1px solid #ddd;border-radius:8px;box-sizing:border-box;"
+            ></textarea>
 
+            <button
+                type="button"
+                class="confirm-btn"
+                onclick="submitBooking('${escapeQuotes(name)}')"
+            >
+                📅 Confirm Booking
+            </button>
 
-      <input
-        id="bookingName"
-        type="text"
-        placeholder="Your name"
-      >
+            <button
+                type="button"
+                class="cancel-btn"
+                onclick="closeBooking()"
+            >
+                Cancel
+            </button>
 
+        </div>
+    `;
 
-      <div class="phone-row">
-
-        <select id="countryCode">
-          ${countryOptions}
-        </select>
-
-        <input
-          id="phone"
-          type="tel"
-          placeholder="Phone number"
-        >
-
-      </div>
-
-
-      <select id="bookingService">
-
-        <option value="">
-          Choose a service
-        </option>
-
-        <option value="Photography">
-          Photography
-        </option>
-
-        <option value="Video Editing">
-          Video Editing
-        </option>
-
-        <option value="Event Coverage">
-          Event Coverage
-        </option>
-
-        <option value="Portrait Photography">
-          Portrait Photography
-        </option>
-
-      </select>
-
-
-      <input
-        id="bookingDate"
-        type="date"
-      >
-
-
-      <input
-        id="bookingTime"
-        type="time"
-      >
-
-
-      <input
-        id="bookingLocation"
-        type="text"
-        placeholder="Event/location"
-      >
-
-
-      <textarea
-        id="bookingMessage"
-        placeholder="Additional message"
-        rows="3"
-      ></textarea>
-
-
-      <button
-        type="button"
-        class="confirm-btn"
-        onclick="submitBooking('${escapeQuotes(name)}')"
-      >
-        Confirm Booking
-      </button>
-
-
-      <button
-        type="button"
-        class="cancel-btn"
-        onclick="closeBooking()"
-      >
-        Cancel
-      </button>
-
-    </div>
-  `;
-
-
-  document.body.appendChild(overlay);
+    document.body.appendChild(overlay);
 }
-
 
 /* =========================================
    ESCAPE QUOTES
